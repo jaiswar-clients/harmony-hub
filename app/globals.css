@@ -1,0 +1,271 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Neo-brutalist Design System - HarmonyHub */
+:root {
+  /* Neo-brutalist Color Palette */
+  --background: #FFFDF5;      /* Cream - main canvas */
+  --foreground: #000000;      /* Pure Black - text, borders, shadows */
+  --card: #FFFFFF;
+  --card-foreground: #000000;
+  --popover: #FFFFFF;
+  --popover-foreground: #000000;
+  --primary: #FF6B6B;         /* Hot Red - accent/CTA */
+  --primary-foreground: #FFFFFF;
+  --secondary: #FFD93D;       /* Vivid Yellow - highlights/focus */
+  --secondary-foreground: #000000;
+  --muted: #C4B5FD;           /* Soft Violet - subtle backgrounds */
+  --muted-foreground: #000000;
+  --accent: #FF6B6B;          /* Hot Red - primary accent */
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #FFFFFF;
+  --border: #000000;          /* Pure Black borders */
+  --input: #000000;
+  --ring: #FFD93D;            /* Yellow for focus states */
+  --footer-bg: #000000;       /* Black footer */
+  --footer-text: #FFFFFF;
+
+  /* Neo-brutalist shadow tokens (hard, zero blur) */
+  --shadow-hard: 8px 8px 0px 0px #000;
+  --shadow-lg: 12px 12px 0px 0px #000;
+  --shadow-xl: 16px 16px 0px 0px #000;
+  --shadow-sm: 4px 4px 0px 0px #000;
+
+  /* Radius */
+  --radius-none: 0;
+  --radius-full: 9999px;
+  --radius: 0;
+}
+
+/* Light mode only - Neo-brutalism is inherently high-contrast light mode */
+.dark {
+  --background: #FFFDF5;
+  --foreground: #000000;
+  --card: #FFFFFF;
+  --card-foreground: #000000;
+  --popover: #FFFFFF;
+  --popover-foreground: #000000;
+  --primary: #FF6B6B;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FFD93D;
+  --secondary-foreground: #000000;
+  --muted: #C4B5FD;
+  --muted-foreground: #000000;
+  --accent: #FF6B6B;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #FFFFFF;
+  --border: #000000;
+  --input: #000000;
+  --ring: #FFD93D;
+  --footer-bg: #000000;
+  --footer-text: #FFFFFF;
+}
+
+@theme inline {
+  /* Space Grotesk - Neo-brutalist typography */
+  --font-sans: "Space Grotesk", "Inter Fallback", sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+
+  /* Neo-brutalist colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Radius - sharp or full only */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-full: 9999px;
+
+  /* Neo-brutalist hard shadow utilities */
+  --shadow-brutal-sm: 4px 4px 0px 0px #000;
+  --shadow-brutal: 8px 8px 0px 0px #000;
+  --shadow-brutal-lg: 12px 12px 0px 0px #000;
+  --shadow-brutal-xl: 16px 16px 0px 0px #000;
+
+  /* Marquee animation */
+  --animate-marquee: marquee var(--duration) infinite linear;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--gap))); }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-black;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Neo-brutalist Mechanical Animations */
+
+/* Quick snap-in animation */
+@keyframes snap-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aggressive bounce for CTAs */
+@keyframes bounce-hard {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Wiggle/rotate for badges */
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-12deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+
+/* Fast shake for attention */
+@keyframes shake-hard {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-4px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(4px);
+  }
+}
+
+/* Slow spin for decorative elements */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Snap pulse for alerts */
+@keyframes pulse-hard {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Entry animations */
+.animate-snap-in {
+  animation: snap-in 0.2s ease-out forwards;
+}
+
+.animate-bounce-hard {
+  animation: bounce-hard 1s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+.animate-shake-hard {
+  animation: shake-hard 0.5s ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+.animate-pulse-hard {
+  animation: pulse-hard 1s ease-in-out infinite;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Neo-brutalist hover effects */
+.brutal-card {
+  transition: all 0.15s ease-out;
+}
+
+.brutal-card:hover {
+  transform: translateY(-4px);
+}
+
+.brutal-button:active {
+  transform: translateX(2px) translateY(2px);
+  box-shadow: none !important;
+}
+
+/* Curved text on path */
+.curved-text {
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  fill: currentColor;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Neo-brutalist scrollbar - thick and hard */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E8E6DD;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B6B;
+}
