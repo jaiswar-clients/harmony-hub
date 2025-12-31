@@ -23,7 +23,7 @@ export function HeroSection() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6 py-16 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-24 items-center">
           {/* Left Column - Content */}
           <div className="flex flex-col justify-center">
             {/* Badge */}
@@ -34,14 +34,14 @@ export function HeroSection() {
             </div>
 
             {/* Hero Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-black leading-[0.9] text-black mb-8 animate-snap-in delay-100">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[0.9] text-black mb-8 animate-snap-in delay-100">
               TRANSFORMING
               <br />
               <span className="text-primary">WORKPLACES</span>
             </h1>
 
             {/* Subheading */}
-            <p className="text-xl md:text-2xl font-bold text-black max-w-2xl mb-12 animate-snap-in delay-200">
+            <p className="text-lg md:text-xl font-bold text-black max-w-2xl mb-12 animate-snap-in delay-200">
               Premium corporate engagement, wellness, and entertainment solutions that reduce stress, boost morale, and build stronger teams.
             </p>
 
@@ -90,7 +90,7 @@ export function HeroSection() {
               />
 
               {/* Floating Badge - Rating */}
-              <div className="absolute top-6 right-6 bg-white border-4 border-black shadow-[6px_6px_0px_0px_#000] p-4 animate-wiggle">
+              <div className="absolute top-6 right-6 bg-white border-4 border-black shadow-brutal-sm p-4 animate-wiggle">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center border-4 border-black bg-primary">
                     <Heart className="h-6 w-6 text-white" strokeWidth={3} />
@@ -104,7 +104,7 @@ export function HeroSection() {
 
               {/* Floating Card - Sessions */}
               <div className="absolute bottom-6 left-6 right-6">
-                <Card className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_#000]">
+                <Card className="bg-white border-4 border-black shadow-brutal-sm">
                   <CardContent className="p-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
