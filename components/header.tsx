@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
@@ -48,10 +49,14 @@ export function Header() {
           href="/"
           className="flex items-center group"
         >
-          <div className="relative overflow-hidden bg-secondary border-4 border-black p-2 shadow-brutal-sm group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-hover:shadow-none transition-all duration-100">
-            <span className="font-black text-xl uppercase tracking-wide">
-              HarmonyHub
-            </span>
+          <div className="relative overflow-hidden bg-white border-4 border-black p-1 shadow-brutal-sm group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-hover:shadow-none transition-all duration-100">
+            <Image
+              src="/logo.png"
+              alt="HarmonyHub Logo"
+              width={200}
+              height={100}
+              className="h-12 w-auto"
+            />
           </div>
         </Link>
 
