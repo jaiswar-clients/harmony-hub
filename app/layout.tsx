@@ -1,18 +1,18 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Space_Grotesk } from "next/font/google"
+import { Outfit } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const spaceGrotesk = Space_Grotesk({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-sans",
   display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: "HarmonyHub | Corporate Wellness & Engagement Programs",
+  title: "PeopleX | Corporate Wellness & Engagement Programs",
   description:
     "Reduce employee burnout by 40% through subscription-based wellness, music, and motivation programs designed for HR teams at 100-5000+ employee companies.",
   generator: "v0.app",
@@ -42,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={spaceGrotesk.className}>
+      <body className={outfit.className}>
         {children}
         <Analytics />
       </body>

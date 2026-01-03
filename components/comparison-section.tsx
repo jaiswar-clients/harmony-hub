@@ -38,17 +38,25 @@ const comparisonData = [
 
 export function ComparisonSection() {
   return (
-    <section className="bg-background py-20 lg:py-28">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section className="bg-background py-20 lg:py-28 border-t-4 border-b-4 border-black relative overflow-hidden">
+      {/* Bauhaus geometric decorations */}
+      <div className="absolute top-10 left-20 w-32 h-32 border-8 border-accent opacity-15 rounded-full bauhaus-rotated-45 pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-24 h-24 bg-primary opacity-10 pointer-events-none" />
+      <div className="absolute top-1/2 right-10 w-16 h-16 border-4 border-black opacity-10 bauhaus-rotated-neg-45 pointer-events-none" />
+
+      {/* Dot pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none bauhaus-dot-grid text-black" />
+
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center mb-16">
-          <Badge variant="pill" className="bg-muted text-black border-4 border-black">
+          <Badge variant="stamp" className="bg-muted text-black border-4 border-black">
             Comparison
           </Badge>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] text-black mt-8">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1] tracking-normal text-black mt-8">
             WHY CHOOSE
             <br />
-            <span className="text-primary">HARMONYHUB?</span>
+            <span className="bg-black text-primary px-4 py-2 -ml-2 inline-block border-4 border-white">PEOPLEX?</span>
           </h2>
           <p className="mt-6 text-lg font-bold text-black/70">See how we compare to traditional approaches.</p>
         </div>
@@ -62,7 +70,7 @@ export function ComparisonSection() {
                   <th className="p-6 text-left font-black uppercase tracking-wide text-black"></th>
                   <th className="p-6 text-center">
                     <div className="inline-flex flex-col items-center gap-1 border-4 border-black bg-primary px-6 py-4 shadow-brutal-sm">
-                      <span className="font-black uppercase text-white text-sm">HarmonyHub</span>
+                      <span className="font-black uppercase text-white text-sm">PeopleX</span>
                       <span className="text-xs font-bold text-white/90">Subscription</span>
                     </div>
                   </th>

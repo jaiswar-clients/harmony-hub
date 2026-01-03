@@ -198,4 +198,4 @@ Wellness calm
 
 Creative energy
 
-That makes HarmonyHub feel modern, premium, and memorable.
+That makes PeopleX feel modern, premium, and memorable.

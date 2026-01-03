@@ -37,27 +37,26 @@ export function TailoredSolutionsSection() {
   ]
 
   return (
-    <section id="solutions" className="relative py-24 lg:py-32 overflow-hidden">
-      {/* Dot pattern */}
-      <div
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)',
-          backgroundSize: '20px 20px',
-        }}
-      />
+    <section id="solutions" className="relative py-24 lg:py-32 overflow-hidden bg-background border-t-4 border-b-4 border-black">
+      {/* Bauhaus geometric decorations */}
+      <div className="absolute top-20 left-1/4 w-32 h-32 border-8 border-primary opacity-20 rounded-full bauhaus-rotated-45 pointer-events-none" />
+      <div className="absolute bottom-20 right-20 w-24 h-24 bg-accent opacity-15 bauhaus-rotated-neg-45 pointer-events-none" />
+      <div className="absolute top-1/2 left-10 w-16 h-16 border-4 border-black opacity-10 rounded-full pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      {/* Dot pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none bauhaus-dot-grid text-black" />
+
+      <div className="relative mx-auto max-w-7xl px-6 z-10">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
           {/* Left content */}
           <div>
-            <Badge variant="pill" className="bg-muted text-black border-4 border-black">
+            <Badge variant="stamp" className="bg-accent text-accent-foreground border-4 border-black">
               Custom Solutions
             </Badge>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] text-black mt-8">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1] tracking-normal text-black mt-8">
               DESIGNED FOR
               <br />
-              <span className="text-primary">YOUR PEOPLE</span>
+              <span className="bg-primary text-primary-foreground px-4 py-2 -ml-2 inline-block border-4 border-black">YOUR PEOPLE</span>
             </h2>
             <p className="mt-6 text-lg font-bold text-black/70 leading-relaxed">
               Tell us your objective — we'll design a fully customized engagement experience that fits your organization's unique culture and business objectives.
@@ -71,7 +70,10 @@ export function TailoredSolutionsSection() {
                 "Scalable across locations",
               ].map((point, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <div className="flex h-6 w-6 items-center justify-center border-2 border-black bg-primary">
+                  <div className={`flex h-6 w-6 items-center justify-center border-2 border-black bg-primary shadow-brutal-sm ${
+                    // Every 3rd item different shape
+                    (index + 1) % 3 === 0 ? 'rounded-full' : 'rounded-none'
+                  }`}>
                     <div className="h-2 w-2 bg-white" />
                   </div>
                   <span className="font-bold text-black">{point}</span>
@@ -81,8 +83,8 @@ export function TailoredSolutionsSection() {
 
             <div className="mt-10">
               <Button
+                variant="bauhaus"
                 size="lg"
-                className="border-4 border-black shadow-brutal"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Start Custom Journey
@@ -94,6 +96,9 @@ export function TailoredSolutionsSection() {
           {/* Right content - Image with overlay */}
           <div className="relative">
             <div className="relative aspect-square border-4 border-black shadow-brutal-lg overflow-hidden">
+              {/* Geometric accent */}
+              <div className="absolute top-4 right-4 w-8 h-8 bg-accent border-4 border-black bauhaus-rotated-45 opacity-80 z-10" />
+
               <Image
                 src="https://images.pexels.com/photos/8436500/pexels-photo-8436500.jpeg"
                 alt="Custom corporate wellness session"
@@ -103,14 +108,14 @@ export function TailoredSolutionsSection() {
 
               {/* Floating card overlay */}
               <div className="absolute bottom-8 left-8 right-8">
-                <Card className="bg-white border-4 border-black shadow-brutal">
+                <Card className="bg-white border-4 border-black shadow-brutal-md">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="flex h-12 w-12 items-center justify-center border-4 border-black bg-primary shadow-brutal-sm">
+                      <div className="flex h-12 w-12 items-center justify-center border-4 border-black bg-primary shadow-brutal-sm rounded-none">
                         <Target className="h-6 w-6 text-white" strokeWidth={3} />
                       </div>
                       <div>
-                        <p className="font-black text-black uppercase">Your Objectives</p>
+                        <p className="font-black text-black uppercase tracking-wider">Your Objectives</p>
                         <p className="text-sm font-bold text-black/70">Our Mission</p>
                       </div>
                     </div>
@@ -123,7 +128,7 @@ export function TailoredSolutionsSection() {
             </div>
 
             {/* Industries badge */}
-            <div className="absolute -top-6 -right-6 hidden lg:block border-4 border-black bg-primary shadow-brutal p-6 max-w-xs">
+            <div className="absolute -top-6 -right-6 hidden lg:block border-4 border-black bg-primary shadow-brutal-md p-6 max-w-xs">
               <div className="flex items-center gap-3 mb-3">
                 <Sparkles className="h-5 w-5 text-white" strokeWidth={3} />
                 <span className="font-black uppercase text-white">Industries</span>
@@ -145,7 +150,14 @@ export function TailoredSolutionsSection() {
         {/* Solution cards grid */}
         <div className="mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {solutions.map((solution, index) => (
-            <Card key={index} className="bg-white border-4 border-black shadow-brutal hover:-translate-y-2 hover:shadow-brutal-xl transition-all duration-200">
+            <Card key={index} className={`bg-white border-4 border-black shadow-brutal-md hover:-translate-y-1 hover:shadow-brutal-lg transition-all duration-200 ${
+              // Every 3rd card gets accent
+              (index + 1) % 3 === 0 ? 'relative' : ''
+            }`}>
+              {/* Geometric accent on every 3rd card */}
+              {(index + 1) % 3 === 0 && (
+                <div className="absolute -top-3 -right-3 w-6 h-6 bg-accent border-2 border-black rounded-full" />
+              )}
               <CardContent className="p-6">
                 <div className="flex h-14 w-14 items-center justify-center border-4 border-black bg-primary shadow-brutal-sm mb-6">
                   <solution.icon className="h-7 w-7 text-white" strokeWidth={3} />

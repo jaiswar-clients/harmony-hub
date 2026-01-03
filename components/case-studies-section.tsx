@@ -59,35 +59,42 @@ const caseStudies = [
 
 export function CaseStudiesSection() {
   return (
-    <section id="case-studies" className="relative py-24 lg:py-32 overflow-hidden bg-muted">
-      {/* Stripe pattern */}
-      <div
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: 'repeating-linear-gradient(90deg, #000, #000 1px, transparent 1px, transparent 25px)',
-        }}
-      />
+    <section id="case-studies" className="relative py-24 lg:py-32 overflow-hidden bg-muted border-t-4 border-b-4 border-black">
+      {/* Bauhaus geometric decorations */}
+      <div className="absolute top-20 left-20 w-32 h-32 border-8 border-primary opacity-20 rounded-full bauhaus-rotated-45 pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-24 h-24 bg-accent opacity-15 pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-16 h-16 border-4 border-black opacity-10 bauhaus-rotated-neg-45 pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      {/* Vertical stripe pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none bauhaus-vertical-stripes text-black" />
+
+      <div className="relative mx-auto max-w-7xl px-6 z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge variant="stamp" className="bg-primary text-white">
+          <Badge variant="stamp" className="bg-primary text-white border-4 border-black">
             Case Studies
           </Badge>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] text-black mt-8">
-            REAL IMPACT.
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1] tracking-normal text-black mt-8">
+            REAL <span className="bg-black text-primary px-4 py-2 -ml-2 inline-block border-4 border-white">IMPACT</span>.
             <br />
             <span className="text-primary">REAL WORKPLACES.</span>
           </h2>
           <p className="mt-6 text-lg font-bold text-black/70 max-w-2xl mx-auto">
-            Discover how organizations across industries have transformed their culture with HarmonyHub's measurable wellness and engagement programs.
+            Discover how organizations across industries have transformed their culture with PeopleX's measurable wellness and engagement programs.
           </p>
         </div>
 
         {/* Case Studies Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {caseStudies.map((study, index) => (
-            <Card key={index} className="bg-white border-4 border-black shadow-brutal hover:-translate-y-2 hover:shadow-brutal-xl transition-all duration-200 flex flex-col h-full">
+            <Card key={index} className={`bg-white border-4 border-black shadow-brutal-md hover:-translate-y-1 hover:shadow-brutal-lg transition-all duration-200 flex flex-col h-full ${
+              // Every 3rd card gets accent
+              (index + 1) % 3 === 0 ? 'relative' : ''
+            }`}>
+              {/* Geometric accent on every 3rd card */}
+              {(index + 1) % 3 === 0 && (
+                <div className="absolute -top-3 -right-3 w-6 h-6 bg-accent border-2 border-black bauhaus-rotated-45 z-10" />
+              )}
               {/* Image */}
               <div className="relative h-56 overflow-hidden border-b-4 border-black">
                 <Image

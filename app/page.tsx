@@ -7,12 +7,11 @@ import { AboutSection } from "@/components/about-section"
 import { VisionMissionSection } from "@/components/vision-mission-section"
 import { ServicesSection } from "@/components/services-section"
 import { BenefitsSection } from "@/components/benefits-section"
-import { WhyHarmonyHubSection } from "@/components/why-harmonyhub-section"
+import { WhyPeopleXSection } from "@/components/why-peoplex-section"
 import { CaseStudiesSection } from "@/components/case-studies-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { TailoredSolutionsSection } from "@/components/tailored-solutions-section"
 import { ComparisonSection } from "@/components/comparison-section"
-import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
 import { EnquiryFormSection } from "@/components/enquiry-form-section"
 import { FinalCTASection } from "@/components/final-cta-section"
@@ -38,7 +37,7 @@ export default function HomePage() {
         {/* Services & Benefits */}
         <ServicesSection />
         <BenefitsSection />
-        <WhyHarmonyHubSection />
+        <WhyPeopleXSection />
 
         {/* Social Proof */}
         <CaseStudiesSection />
@@ -47,8 +46,6 @@ export default function HomePage() {
         {/* Solutions & Pricing */}
         <TailoredSolutionsSection />
         <ComparisonSection />
-        <PricingSection />
-
         {/* FAQ & Contact */}
         <FAQSection />
         <EnquiryFormSection />

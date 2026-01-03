@@ -5,24 +5,26 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const badgeVariants = cva(
-  'inline-flex items-center justify-center border-2 border-black font-bold text-xs uppercase tracking-widest px-3 py-1 w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none transition-all duration-150 shadow-brutal-sm',
+  'inline-flex items-center justify-center border-2 border-black font-black text-xs uppercase tracking-widest px-3 py-1 w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none transition-all duration-150 shadow-brutal-sm',
   {
     variants: {
       variant: {
         default:
-          'bg-primary text-white rounded-none',
+          'bg-primary text-primary-foreground rounded-none',
         secondary:
-          'bg-secondary text-black rounded-none',
+          'bg-secondary text-secondary-foreground rounded-none',
         muted:
-          'bg-muted text-black rounded-none',
+          'bg-muted text-muted-foreground rounded-none',
         outline:
-          'bg-white text-black rounded-none',
+          'bg-background text-foreground rounded-none',
         pill:
-          'bg-primary text-white rounded-full shadow-brutal-sm',
+          'bg-primary text-primary-foreground rounded-full shadow-brutal-sm',
         rotated:
-          'bg-secondary text-black rounded-none rotate-[-12deg] absolute -top-3 -right-3 shadow-brutal-sm hover:rotate-[-8deg]',
+          'bg-secondary text-secondary-foreground rounded-none rotate-[-12deg] absolute -top-3 -right-3 shadow-brutal-md hover:rotate-[-8deg]',
         stamp:
-          'bg-primary text-white rounded-full px-4 py-2 shadow-brutal-sm animate-wiggle',
+          'bg-accent text-accent-foreground rounded-full px-4 py-2 shadow-brutal-md border-4 animate-wiggle',
+        bauhaus:
+          'bg-accent text-accent-foreground rounded-none rotate-[45deg] shadow-brutal-md',
       },
     },
     defaultVariants: {

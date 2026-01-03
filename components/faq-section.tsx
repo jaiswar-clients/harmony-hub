@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react"
 
 const faqs = [
   {
-    question: "What should I expect from HarmonyHub programs?",
+    question: "What should I expect from PeopleX programs?",
     answer:
       "Our programs are designed with measurable outcomes. Clients report 30-45% reduction in stress indicators, 25-42% improvement in engagement scores, and lower absenteeism and turnover. We provide quarterly impact reports with your subscription.",
   },
@@ -34,51 +34,53 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="bg-background py-24 lg:py-32">
-      {/* Diagonal stripe pattern */}
-      <div
-        className="absolute inset-0 opacity-5 pointer-events-none"
-        style={{
-          backgroundImage: 'repeating-linear-gradient(-45deg, #000, #000 1px, transparent 1px, transparent 12px)',
-        }}
-      />
+    <section id="faq" className="bg-muted py-24 lg:py-32 border-t-4 border-b-4 border-black relative overflow-hidden">
+      {/* Bauhaus geometric decorations */}
+      <div className="absolute top-20 left-10 w-32 h-32 border-8 border-primary opacity-20 rounded-full bauhaus-rotated-45 pointer-events-none" />
+      <div className="absolute bottom-20 right-20 w-24 h-24 bg-accent opacity-15 pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      {/* Diagonal stripe pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none bauhaus-diagonal-stripes text-black" />
+
+      <div className="relative mx-auto max-w-7xl px-6 z-10">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left side header */}
           <div>
-            <Badge variant="pill" className="bg-primary text-white border-4 border-black">
+            <Badge variant="pill" className="bg-primary text-primary-foreground border-4 border-black">
               FAQ
             </Badge>
-            <h2 className="mt-8 text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] text-black">
+            <h2 className="mt-8 text-5xl md:text-6xl lg:text-7xl font-black leading-[1] tracking-normal text-black">
               FREQUENTLY
               <br />
-              <span className="text-primary">ASKED</span>
+              <span className="bg-black text-white px-4 py-2 -ml-2 inline-block border-4 border-primary">ASKED</span>
               <br />
               QUESTIONS
             </h2>
-            <p className="mt-6 text-lg font-bold text-black/80">
+            <p className="mt-6 text-lg font-black text-black/80">
               Have questions about our programs? Here are answers to the most common queries.
             </p>
             <a
               href="#contact"
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-black hover:text-primary transition-colors border-b-4 border-black hover:border-primary pb-1"
+              className="group mt-8 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wider text-black hover:text-primary transition-colors border-b-4 border-black hover:border-primary pb-1"
             >
               Contact us
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" strokeWidth={3} />
             </a>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* FAQ Accordion - Bauhaus styled */}
           <div>
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="border-4 border-black bg-white shadow-brutal data-[state=open]:bg-yellow-100"
+                  className={`border-4 border-black bg-white shadow-brutal-md data-[state=open]:bg-accent/10 ${
+                    // Every 3rd item gets accent border
+                    (index + 1) % 3 === 0 ? 'border-l-8 border-l-primary' : ''
+                  }`}
                 >
-                  <AccordionTrigger className="px-6 py-5 text-left font-black uppercase tracking-wide text-black hover:no-underline text-base [&[data-state=open]]:text-primary">
+                  <AccordionTrigger className="px-6 py-5 text-left font-black uppercase tracking-wider text-black hover:no-underline text-base [&[data-state=open]]:text-primary">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="px-6 pb-5 leading-relaxed text-base font-bold text-black/80">

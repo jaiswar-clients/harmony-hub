@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Blue Harmony Design System - HarmonyHub */
+/* Blue Harmony Design System - PeopleX */
 :root {
   /* Blue Harmony - Light Mode */
   --background: oklch(0.98 0.005 250);      /* Blue-tinted off-white */
@@ -25,10 +25,12 @@
   --footer-bg: oklch(0.20 0.03 250);
   --footer-text: oklch(0.95 0.01 250);
 
-  /* Premium soft shadows */
-  --shadow-soft: 0 2px 8px -2px oklch(0.25 0.02 250 / 0.1);
-  --shadow-soft-lg: 0 8px 24px -4px oklch(0.25 0.02 250 / 0.15);
-  --shadow-soft-xl: 0 16px 48px -8px oklch(0.25 0.02 250 / 0.2);
+  /* Bauhaus Hard Offset Shadows */
+  --shadow-bauhaus-sm: 2px 2px 0px 0px oklch(0.25 0.02 250 / 1);
+  --shadow-bauhaus-md: 4px 4px 0px 0px oklch(0.25 0.02 250 / 1);
+  --shadow-bauhaus-lg: 6px 6px 0px 0px oklch(0.25 0.02 250 / 1);
+  --shadow-bauhaus-xl: 8px 8px 0px 0px oklch(0.25 0.02 250 / 1);
+  --shadow-bauhaus-2xl: 12px 12px 0px 0px oklch(0.25 0.02 250 / 1);
 
   /* Radius */
   --radius-none: 0;
@@ -79,6 +81,13 @@
   --footer-bg: oklch(0.12 0.03 250);
   --footer-text: oklch(0.92 0.005 250);
 
+  /* Bauhaus Hard Shadows - Dark Mode (White) */
+  --shadow-bauhaus-sm: 2px 2px 0px 0px oklch(0.92 0.005 250 / 1);
+  --shadow-bauhaus-md: 4px 4px 0px 0px oklch(0.92 0.005 250 / 1);
+  --shadow-bauhaus-lg: 6px 6px 0px 0px oklch(0.92 0.005 250 / 1);
+  --shadow-bauhaus-xl: 8px 8px 0px 0px oklch(0.92 0.005 250 / 1);
+  --shadow-bauhaus-2xl: 12px 12px 0px 0px oklch(0.92 0.005 250 / 1);
+
   --chart-1: oklch(0.68 0.16 250);
   --chart-2: oklch(0.82 0.14 70);
   --chart-3: oklch(0.75 0.16 150);
@@ -98,8 +107,8 @@
 }
 
 @theme inline {
-  /* Space Grotesk - Neo-brutalist typography */
-  --font-sans: "Space Grotesk", "Inter Fallback", sans-serif;
+  /* Outfit - Bauhaus typography */
+  --font-sans: "Outfit", "Inter Fallback", sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback";
 
   /* Neo-brutalist colors */
@@ -130,11 +139,12 @@
   --radius-xl: 0;
   --radius-full: 9999px;
 
-  /* Premium soft shadow utilities */
-  --shadow-brutal-sm: var(--shadow-soft);
-  --shadow-brutal: var(--shadow-soft-lg);
-  --shadow-brutal-lg: var(--shadow-soft-xl);
-  --shadow-brutal-xl: 0 24px 64px -12px oklch(0.25 0.02 250 / 0.25);
+  /* Bauhaus hard shadow utilities */
+  --shadow-brutal-sm: var(--shadow-bauhaus-sm);
+  --shadow-brutal: var(--shadow-bauhaus-md);
+  --shadow-brutal-lg: var(--shadow-bauhaus-lg);
+  --shadow-brutal-xl: var(--shadow-bauhaus-xl);
+  --shadow-brutal-2xl: var(--shadow-bauhaus-2xl);
 
   /* Marquee animation */
   --animate-marquee: marquee var(--duration) infinite linear;
@@ -302,4 +312,86 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.38 0.16 255);
+}
+
+/* ========================================
+   BAUHAUS DESIGN SYSTEM UTILITIES
+   ======================================== */
+
+/* Bauhaus Geometric Patterns */
+.bauhaus-dot-grid {
+  background-image: radial-gradient(circle, currentColor 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+.bauhaus-grid-lines {
+  background-image:
+    linear-gradient(to right, currentColor 1px, transparent 1px),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bauhaus-diagonal-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    currentColor,
+    currentColor 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+
+.bauhaus-circle-overlay {
+  background-image: radial-gradient(circle at center, currentColor 0%, transparent 70%);
+}
+
+/* Bauhaus Geometric Shapes */
+.bauhaus-circle {
+  border-radius: 9999px;
+}
+
+.bauhaus-square {
+  border-radius: 0;
+}
+
+.bauhaus-rotated-45 {
+  transform: rotate(45deg);
+}
+
+.bauhaus-rotated-neg-45 {
+  transform: rotate(-45deg);
+}
+
+/* Bauhaus Hover & Press Effects */
+.bauhaus-press-effect {
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+
+.bauhaus-press-effect:hover {
+  transform: translateX(-1px) translateY(-1px);
+}
+
+.bauhaus-press-effect:active {
+  transform: translateX(2px) translateY(2px);
+  box-shadow: none !important;
+}
+
+/* Bauhaus Triangle (using clip-path) */
+.bauhaus-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Responsive Bauhaus Borders */
+.bauhaus-border {
+  border-width: 2px;
+  @apply sm:border-4;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
