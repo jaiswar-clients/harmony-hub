@@ -33,7 +33,7 @@ const problems = [
 
 export function ProblemSection() {
   return (
-    <section id="about" className="bg-primary py-24 lg:py-32 border-t-4 border-b-4 border-black relative overflow-hidden">
+    <section className="bg-primary py-24 lg:py-32 border-t-4 border-b-4 border-black relative overflow-hidden">
       {/* Bauhaus geometric decorations */}
       <div className="absolute top-20 left-10 w-32 h-32 border-8 border-white opacity-10 rounded-full bauhaus-rotated-45 pointer-events-none" />
       <div className="absolute bottom-20 right-20 w-24 h-24 bg-secondary opacity-20 pointer-events-none" />
